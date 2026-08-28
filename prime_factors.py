@@ -1,17 +1,22 @@
 
 def prime_factors(n):
     factors = []
-    divisor = 2
-    while n > 1:
-        while n % divisor == 0:
-            factors.append(divisor)
-            n //= divisor
-        divisor += 1
+    d = 2
+    while d * d <= n:
+        while n % d == 0:
+            factors.append(d)
+            n //= d
+        d += 1
+    if n > 1:
+        factors.append(n)
     return factors
 
 
 def main():
-    print(prime_factors(56))
+    numbers = [12, 17, 100, 13195, 1]
+    for num in numbers:
+        print(f"Prime factors of {num}: {prime_factors(num)}")
+
 
 if __name__ == "__main__":
     main()
